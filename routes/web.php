@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $name = 'Cars Project';
+    $age = 35;
+    return view('Welcome', compact( 'name', 'age'));
 });
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/laravel-cars', 'CarsController@index');
+Route::get('/laravel-cars/{id}', 'CarsControler@show');
